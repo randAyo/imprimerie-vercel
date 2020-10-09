@@ -1,0 +1,145 @@
+@import "../../scss/all.scss";
+$contact-bg  : transparent;
+$heading-size: 2.3rem;
+$par-size    : 2rem;
+
+.contactSection {
+    background-color: $orange;
+    @include flexed;
+    margin-top: 2rem;
+}
+
+.contactContainer {
+    @include contain($bg :$orange);
+    color                : set-text-color($contact-bg);
+    display              : grid;
+    grid-row-gap         : 1rem;
+    grid-template-columns: 40rem 1fr 1fr;
+    grid-template-rows   : 7rem auto;
+    width                : 90%;
+    justify-content      : center;
+
+    @include screen(mobile) {
+        grid-template-columns: 28rem;
+        max-width            : 100%;
+        margin               : auto;
+    }
+}
+
+
+
+.contactHeading {
+    grid-column: 1/-1;
+    grid-row   : 1 / span 1;
+    margin     : 0;
+    @include heading-font;
+    border-bottom: 0.125rem solid $gray;
+    text-align   : center;
+    color        : $blue;
+
+
+}
+
+.contactAside {
+    grid-column               : 1 / span 1;
+    grid-row                  : 2 / span 1;
+    padding                   : 0.5rem;
+    border-right              : 0.125rem solid $gray;
+    margin-right              : 2rem;
+    color                     : $white;
+    @include flexed($direction: column, $align: flex-start);
+
+
+
+}
+
+.contactInput {
+    grid-column             : 2/-1;
+    grid-row                : 2 / span 1;
+    @include flexed($justify: space-between, $align: center);
+    margin                  : 2rem 0;
+    width                   : 100%;
+}
+
+.whyContact h3,
+.howContact h3 {
+    @include heading-font($heading-size);
+    color    : $blue;
+    padding  : 1rem 0;
+    max-width: 23rem;
+    margin   : 0;
+}
+
+.whyContactUl li {
+    padding: 0.7rem 1rem;
+    @include paragraph-font($par-size);
+    list-style    : inside;
+    text-transform: capitalize;
+    color         : $white;
+}
+
+.howContact {
+    width : 90%;
+    margin: 2rem 0;
+
+}
+
+.howContactUl {
+    display        : flex;
+    justify-content: space-between;
+    width          : 100%;
+
+    li {
+        padding: 0.7rem 2rem;
+
+        svg {
+            transform: scale(3);
+            fill     : $white;
+        }
+    }
+}
+
+@media (max-width: 773px) {
+    .contactContainer {
+
+        grid-template-columns: 1fr;
+    }
+
+    .contactAside {
+        border-right : none;
+        border-bottom: 0.125rem solid $gray;
+    }
+
+    .contactInput {
+        grid-row   : 3 / span 1;
+        grid-column: 1/-1;
+        overflow-x : auto;
+
+    }
+}
+
+@media (max-width: 1317px) {
+    .contactHeading {
+        font-size: 3rem;
+        border   : none;
+    }
+
+    .contactHeading {
+        grid-column    : 1/2;
+        align-items    : center;
+        justify-content: center;
+
+        h3,
+        ul {
+            max-width: 23rem;
+        }
+    }
+
+    .contactInput {
+        grid-column      : 1/-1;
+        // grid-row      : 3 / span 1;
+        flex-direction   : column;
+        overflow-y      : hidden;
+        align-items      : center;
+    }
+}

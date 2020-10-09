@@ -1,0 +1,54 @@
+@import '../../scss/all.scss';
+.dropdown {
+    position: relative;
+    font-size: 2rem;
+}
+
+.dropdownContent {
+    position: absolute;
+    right: -100%;
+    min-width: 250px;
+    z-index: 201;
+    overflow-x: hidden;
+    @include shadowed;
+    border-radius: 10px;
+    .dropdownUl {
+        background-color: $white;
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: auto;
+        padding: 0.125em;
+    }
+}
+
+.dropdownLi {
+    text-align: center;
+    padding: 12px 0px;
+    border-radius: 10px;
+    a {
+        color: $black;
+        text-transform: capitalize;
+        font-size: 14px;
+        font-family: $simple-font;
+    }
+    &:hover,
+    &:active {
+        background-color: $header-bg;
+        cursor: pointer;
+        a {
+            color: set-text-color($header-bg);
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .dropdownUl {
+        display: flex;
+        flex-direction: column;
+        li {
+            padding: 1em;
+            text-align: center;
+            @include list-font();
+        }
+    }
+}

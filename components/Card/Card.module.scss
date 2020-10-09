@@ -1,0 +1,50 @@
+@import '../../scss/all.scss';
+
+.cardImage {
+    grid-area              : image;
+    border-top-left-radius : 15px;
+    border-top-right-radius: 15px;
+    background-size        : cover;
+    background-repeat      : no-repeat;
+}
+
+.cardText {
+    grid-area: text;
+    margin   : 1em;
+
+    h2 {
+        color                           : $blue;
+        @include heading-font($font-size: 2rem)
+    }
+
+    position: relative;
+
+}
+
+.cardDescription {
+    padding  : 0 10px;
+    position : absolute;
+    top      : 80%;
+    left     : 3%;
+    transform: translate(-3%, -80%);
+
+    p {
+        overflow                          : hidden;
+        text-overflow                     : ellipsis;
+        display                           : -webkit-box;
+        -webkit-line-clamp                : 3;
+        -webkit-box-orient                : vertical;
+        margin                            : 1em 0;
+        color                             : $gray;
+        text-align                        : start;
+        word-wrap                         : break-word;
+        @include paragraph-font($font-size: 1.2rem)
+    }
+}
+
+.cardLink {
+    @include buttoned;
+    cursor                            : pointer;
+    color                             : $white;
+    @include paragraph-font($font-size: 1.5rem)
+}

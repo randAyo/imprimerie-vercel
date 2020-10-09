@@ -1,0 +1,93 @@
+@import '../../scss/all.scss';
+$head-mob  :2.5rem;
+$speed     : 0.3;
+$font-size : 2rem;
+$mobbile-fs: $font-size*(3.9/4);
+$bg        : $orange;
+
+.bail {
+    @include flexed($justify: space-evenly);
+    margin-top              : 2rem;
+
+    svg {
+        max-width: 50%;
+        height   : auto;
+    }
+
+    @include screen(mobile) {
+        margin-top    : 6rem;
+        flex-direction: column;
+
+        svg {
+            max-width: 100%;
+            width    : 90%;
+        }
+    }
+}
+
+.calltoAction {
+    @include contain($bg: transparent);
+
+    p {
+        @include paragraph-font($font-size);
+        max-width : 50ch;
+        text-align: left;
+        padding   : 4rem 0;
+    }
+
+    @include screen(mobile) {
+        background-size  : contain;
+        background-repeat: no-repeat;
+
+        p {
+            font-size: $mobbile-fs;
+        }
+    }
+}
+
+.bailHeading {
+    @include heading-font($mobbile-fs);
+    display       : flex;
+    flex-direction: column;
+
+    h1 {
+        text-transform: capitalize;
+        color         : $gray;
+        text-align    : left;
+    }
+
+    span {
+        color         : $blue;
+        text-transform: uppercase;
+        text-align    : right;
+        font-weight   : bold;
+        font-size     : 2.5rem;
+    }
+
+}
+
+@for $i from 1 to 20 {
+    .letters#{$i} {
+        animation: lightsOn 1s ease #{$i*$speed}s infinite both;
+    }
+}
+
+
+@keyframes lightsOn {
+    0% {
+        fill: none;
+    }
+
+    50% {
+        fill: $orange;
+    }
+
+    100% {
+        fill: none;
+
+    }
+}
+:export {
+    orange: $orange;
+    blue: $blue;
+}

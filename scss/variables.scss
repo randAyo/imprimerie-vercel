@@ -1,0 +1,48 @@
+/* HEX PALETE */
+$color1           : #00171f;
+$color2           : #003459;
+$color3           : #4b595b;
+$color4           : #fdfffc;
+$color5           : #CF5600;
+$color6           : #174d73;
+
+//secondary pallte
+// $color1:#264653;
+
+
+/* note make sure that secondary white isn't too bright and that hex
+ codes are 6 figures only because that  creates a big problem */
+
+//ORDERING COLORS
+
+$black       : $color1;
+$blue        : $color2;
+$gray        : $color3;
+$white       : $color4;
+$orange      : $color5;
+//light
+$light-blue  : $color6;
+$light-orange: lighten($orange, 20);
+$light-gray  : lighten($gray, 50);
+$header-bg   : $orange;
+$body-bg     : darken(white, 3);
+$gradient    :linear-gradient(to right, #1CB5E0, #000046);
+
+
+// IRETATE THROUGH COLORS ARRAY
+
+$colors: ($color1, $color2, $color3, $color4, $color5, $color6);
+
+// FONTS
+$exotic-font: "Neucha";
+$simple-font: "Noto";
+
+// ANIMATIONS
+$ease           : cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$animation-speed: 0.7; //use function to add s to the end
+
+:export {
+        blue  : $blue;
+        gray  : $gray;
+        orange: $orange;
+}

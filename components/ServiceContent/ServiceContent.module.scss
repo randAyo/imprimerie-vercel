@@ -1,0 +1,111 @@
+@import '../../scss/all.scss';
+$fsize : 1.5rem;
+$fmsize:1.2rem;
+
+
+.Ccontainer {
+	display       : flex;
+	flex-direction: column;
+	align-items   : center;
+	width         : calc(100% - 30vw);
+	border        : 0.2rem solid $blue;
+	border-radius : 1rem;
+
+	@include screen((max-width: 900px)) {
+		width: 98%;
+	}
+
+}
+
+.heading {
+	@include heading-font;
+	color: $blue;
+
+	@include screen(medium) {
+		font-size: 2.5rem;
+	}
+}
+
+.content {
+
+	padding: 2rem;
+	@include flexed;
+	flex-wrap: wrap;
+
+
+	@include screen(mobile) {
+		width  : 100%;
+		padding: 0.5rem;
+	}
+
+}
+
+.image {
+	width : 50%;
+	margin: 1rem;
+
+	img {
+		@include responsiveImage;
+		display      : block;
+		border-radius: 1rem;
+	}
+}
+
+.calc {
+	width: 100%;
+}
+
+.details {
+	width                        : 100%;
+	// padding                   : 1rem;
+	margin                       : 1rem;
+	@include flexed($direction   : column, $justify: space-between);
+
+	.text {
+		@include paragraph-font($fsize);
+		margin: 2rem;
+
+		p {
+			margin: 1rem;
+		}
+
+		h2 {
+			text-align    : right;
+			font-family   : $exotic-font;
+			text-transform: capitalize;
+
+			span {
+				color: $light-blue;
+			}
+		}
+	}
+
+
+}
+
+.accordionContainer div:first-child button {
+	border-top-left-radius : 1rem;
+	border-top-right-radius: 1rem;
+
+}
+
+.accordionContainer div:last-child button {
+	border-bottom-left-radius : 1rem;
+	border-bottom-right-radius: 1rem;
+
+}
+
+@media(max-width: 800px) {
+	.details {
+		width: 100%;
+
+		.text {
+			width : 100%;
+			margin: 2rem 0;
+		}
+	}
+
+	.image {
+		width: 100%;
+	}
+}

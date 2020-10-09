@@ -1,0 +1,95 @@
+@import '../../scss/all.scss';
+$head-font     : 4rem;
+$paragraph-font: $head-font/2;
+
+.icons svg {
+    fill: $white;
+    margin: 1rem;
+}
+
+.footer {
+    height                  : 70vh;
+    // background-image        : url('/deskBg.webp');
+    background-color: $orange;
+    background-repeat       : no-repeat;
+    background-size         : cover;
+    @include flexed($justify: flex-end);
+    margin-top              : 3rem;
+    position                : relative;
+}
+
+.content {
+    max-width               : 600px;
+    width                   : 100%;
+    @include flexed($justify: space-between);
+}
+
+.aboutUs,
+.socials {
+    color: $white;
+    width: 50%;
+
+    h1 {
+        @include heading-font($head-font);
+    }
+
+    ul {
+        padding    : 1rem;
+        border-left: 0.25rem $white solid;
+
+        li {
+            padding: 1rem;
+            @include paragraph-font($paragraph-font);
+        }
+    }
+}
+
+.socials li {
+    padding: 1rem 2rem;
+
+    a svg {
+        transform: scale(3);
+    }
+}
+
+// BREAK
+
+@media only screen and (max-width: 1155px) {
+    .footer {
+        background-image: url('/phone-bg.svg');
+        justify-content : center;
+
+    }
+}
+
+@media only screen and (max-width: 1155px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .socials ul {
+        display    : flex;
+        border-left: none;
+        border-top : 0.25rem $white solid;
+
+        li {
+            padding: 2rem;
+        }
+    }
+}
+
+.credit {
+    position: absolute;
+    bottom  : 5%;
+    right   : 2%;
+    @include paragraph-font(1.5rem);
+    cursor: auto;
+
+    span {
+        margin-left: 0.5rem;
+        cursor     : pointer;
+        color      : $orange;
+        font-size  : 1.7rem;
+    }
+
+}

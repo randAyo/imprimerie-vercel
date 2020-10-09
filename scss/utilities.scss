@@ -1,0 +1,134 @@
+@function isHex($string) {
+    $stra      : #{$string};
+    $index     : str-index($string: $stra, $substring: "#");
+    $no-hashtag: str-slice($stra, 2, -1);
+
+    @if $index==null {
+        @return $string;
+    }
+
+    @else {
+        @return $no-hashtag;
+    }
+}
+
+@mixin about-grid($row:1, $width:1316px, $column:'1/-1', $min:false, $rowCom:'1/-1') {
+    @if ($min==false) {
+        @include screen((max-width: $width)) {
+            grid-column: unquote($column);
+            grid-row   : $row/ span 1;
+        }
+    }
+
+    @else {
+        @include screen((min-width: $width)) {
+            grid-column: unquote($column);
+        }
+    }
+}
+
+@function str-remove-whitespace($str) {
+    @while (str-index($str, ' ') !=null) {
+        $index: str-index($str, ' ');
+        $str  : "#{str-slice($str, 0, $index - 1)}#{str-slice($str, $index + 1)}";
+    }
+
+    @return un#{$str};
+}
+
+// set text color based on backgound
+@function set-text-color($color) {
+    @if(lightness($color) > 50 or #{$color}=='transparent') {
+        @return $black;
+    }
+
+    @else {
+        @return $white;
+    }
+}
+
+@mixin contain($max-width: 90%, $bg: $white, $padding:2rem) {
+    max-width       : $max-width;
+    background-color: $bg;
+    margin          : 20px auto 0;
+    padding         : $padding;
+}
+
+@mixin flexed($justify:center, $direction: row, $align: center) {
+    display        : flex;
+    flex-direction : $direction;
+    justify-content: $justify;
+    align-items    : $align;
+}
+
+// set background and text xolor
+@mixin set-bg($color) {
+    background-color: $color;
+    color           : set-text-color($color);
+}
+
+@mixin responsiveImage($max-width: 100%) {
+    width    : 100%;
+    height   : auto;
+    max-width: $max-width;
+}
+
+@mixin push--auto {
+    margin: {
+        left : auto;
+        right: auto;
+    }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content : $content;
+    display : $display;
+    position: $pos;
+}
+
+@mixin screen($size) {
+    $desktop: "(min-width: 992px)";
+    $tablet : "(min-width: 768px) and (max-width: 991px)";
+    $mobile : "(max-width: 479px)";
+    $medium : "(max-width: 991px)";
+
+    @if $size==desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+
+    @else if $size==tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+
+    @else if $size==mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+
+    @else if $size==medium {
+        @media only screen and #{$medium} {
+            @content;
+        }
+    }
+
+    // @else {
+    //     @media only screen and #{$size} {
+    //         @content;
+    //     }
+    // }
+}
+
+// BOX SHADOW
+@mixin shadowed {
+    box-shadow: 0em 1em 2em -0.5em rgba($color: $black, $alpha: 0.7);
+}
+
+@mixin coverHover {
+    box-shadow: -5em 0em $white, 5em 0em $white, -10em 0em $white, 10em 0em $white;
+}
+

@@ -1,0 +1,57 @@
+@import '../../scss/all.scss';
+$speed: str-remove-whitespace(quote(($animation-speed*4/5)+'s'));
+
+.container {
+    position       : fixed;
+    top            : 50vh;
+    left           : 2vw;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    z-index        : 5;
+    animation      : all 2s linear forwards;
+    
+    @include screen(mobile) {
+        left: 2vw;
+    }
+    
+}
+
+.ul {
+    background-color: $white;
+    padding         : 0.5rem;
+    border-radius   : 1rem;
+    display         : flex;
+    align-items     : flex-end;
+    transition      : all $speed $ease;
+    flex-direction: column;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    li {
+        padding   : 0.7rem;
+        transition: all $speed ease;
+        cursor    : pointer;
+
+        svg {
+            transform       : scale(2);
+            background-color: $white;
+            z-index         : 5;
+            transition      : all $speed ease;
+            fill            : $blue;
+            border-radius   : 5px;
+
+            &:hover {
+                transform: scale(2.5);
+            }
+
+        }
+
+        &:hover {
+            padding: 1.2rem;
+        }
+
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../scss/all.scss';
+
+.container {
+    @include contain;
+    margin-top              : 10rem;
+    @include flexed($justify: space-evenly);
+
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding       : 2rem 0;
+        flex-direction: column;
+        margin: 0;
+        max-width: 100%;
+        div {
+            width: 90%;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@import '../../scss/all.scss';
+$speed: 2s;
+
+.cards {
+    overflow: hidden;
+    position: relative;
+}
+
+.leftCardBtn {
+    grid-column               : 1/span 1;
+    border-top-right-radius   : 1rem;
+    border-bottom-right-radius: 1rem;
+    justify-self              : left;
+
+}
+
+.rightCardBtn {
+    grid-column              : 3/span 1;
+    // width: 50%;
+    border-top-left-radius   : 1rem;
+    border-bottom-left-radius: 1rem;
+    justify-self             : right;
+
+}
+
+.rightCardBtn,
+.leftCardBtn {
+    background-color: $blue;
+    outline         : none;
+    border          : none;
+    width           : 30%;
+    height          : 20.5%;
+    align-self      : center;
+    grid-row        : 1/-1;
+
+    svg g {
+        transform: translate(-11px, -12px) scale(2);
+    }
+
+}
+
+@media (max-width: 950px) {
+
+    .rightCardBtn,
+    .leftCardBtn {
+        width: 90%;
+    }
+}
+
+.carda {
+    display    : flex;
+    flex-wrap  : nowrap;
+    align-items: center;
+    transition : all $speed $ease;
+    height     : 50rem;
+    transform  : translateX(10%);
+
+    @include screen(mobile) {
+        transform: translateX(0);
+
+    }
+}
+
+
+
+.colCard {
+    transition: all $speed $ease;
+}
+
+
+.indicatorContainer {
+    margin         : 0 auto;
+    width          : 70%;
+    display        : flex;
+    justify-content: space-evenly;
+    align-items    : baseline;
+
+
+}
+
+.indicatorItem {
+    background-color: $black;
+    height          : 0.5vh;
+    width           : 3vw;
+    opacity         : 0.3;
+    border-radius   : 10px;
+    cursor          : pointer;
+    transition      : all 0.3s $ease;
+
+    &:hover {
+        opacity: 0.5;
+        height : 0.7vh;
+        width  : 3.2vw;
+    }
+}
+:export {
+    orange: $orange;
+}

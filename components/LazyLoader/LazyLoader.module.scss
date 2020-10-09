@@ -1,0 +1,12 @@
+@import '../../scss/all.scss';
+
+.LazyLoader {
+    @include flexed($justify: center);
+    width                   : 100%;
+    font-size               : 5rem;
+    margin-top              : 20rem;
+
+    span {
+        font-family: $exotic-font;
+    }
+}

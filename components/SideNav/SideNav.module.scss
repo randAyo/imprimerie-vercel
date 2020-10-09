@@ -1,0 +1,64 @@
+@import '../../scss/all.scss';
+$side-bg: $light-blue;
+$fsize  : 1.5rem;
+$fmsize : 1.2rem;
+
+.sidenav {
+    width           : 20vw;
+    background-color: $side-bg;
+    color           : set-text-color($side-bg);
+    border-radius   : 1rem;
+    padding         : 1rem;
+    align-self      : flex-start;
+
+    @include screen ((max-width:900px)) {
+        display: none;
+    }
+}
+
+.btn {
+    width         : 100%;
+    text-transform: capitalize;
+    @include paragraph-font($fsize);
+    background-color: lighten($side-bg, 10%);
+    color           : set-text-color($side-bg);
+    border          : none;
+    outline         : none;
+    cursor          : pointer;
+    border-radius   : 1rem;
+
+    // @include screen ((max-width:900px)) {
+    //         font-size: $fmsize;
+    //         width: 10rem;
+    //         margin: 0 0.5rem;
+    //         padding: 0.1rem 1rem;
+    //         height: 5rem;
+    //         text-transform: lowercase;
+
+    // }
+    p {
+    padding       : 1.5rem 1rem;
+    }
+}
+
+.unordered {
+    @include flexed($direction: column);
+    width                     : 100%;
+
+    li {
+        width : 100%;
+        margin: 0.5rem 0;
+    }
+
+    // @include screen((max-width: 900px)) {
+    //         flex-direction: row;
+    //         flex-wrap     : wrap;
+    //         margin        : 0 auto;
+    //         align-items   : flex-start;
+
+    //         li {
+    //                 width: auto;
+    //         }
+
+    // }
+}

@@ -1,0 +1,8 @@
+@import '../../scss/all.scss';
+
+.container {
+    height: 50vh;
+    @include flexed;
+    font-size: 6rem;
+    font-family: $exotic-font;
+}
