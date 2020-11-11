@@ -2,6 +2,8 @@ import React from 'react'
 import classes from './ServiceContent.module.scss'
 import { serviceContent, accordion } from '../../interfaces';
 import { Accordion } from '../Accordion/Accordion'
+import Image from 'next/image'
+
 
 interface props extends serviceContent {
 	accordionArray: accordion[]
@@ -14,7 +16,10 @@ interface props extends serviceContent {
 			<h1 className={heading}>{name}</h1>
 			<div className={content}>
 				<div className={details}>
-					<div className={image}><img src={src} alt={name} /></div>
+					<div className={image}>
+						<Image width="auto" height="auto" layout="responsive" src={src} alt={name} />
+						
+						</div>
 					<div className={text}>
 						{description.map((ex, index) =>
 							<p
